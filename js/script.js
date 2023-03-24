@@ -152,6 +152,7 @@ const cardsContainer = document.querySelector(".cards-container");
 const selectCategories = document.querySelector("#categories");
 const options = selectCategories.querySelectorAll("option");
 
+
 // attraverso la funzione creo un array di carte
 function createCards(icons) {
     // dichiaro l'array e lo lascio vuoto
@@ -163,7 +164,7 @@ function createCards(icons) {
             <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-3">
                 <div class="card text-bg-light mb-3">
                     <div class="card-body text-center">
-                        <p class="card-icon"><i class="${icon.prefix}${icon.family} ${icon.prefix}${icon.name}"></i></p>
+                        <p class="card-icon"><i class="${icon.color} ${icon.prefix}${icon.family} ${icon.prefix}${icon.name}"></i></p>
                         <p class="card-text">${icon.name}</p>
                     </div>
                 </div>
@@ -176,35 +177,3 @@ function createCards(icons) {
 
 }
 
-// invoco la funzione che crea le card
-const cards = createCards(icons);
-console.log(cards);
-cardsContainer.innerHTML = cards.join(" ");
-
-function identifyFam() {
-    const famAnimal = [];
-    const famVegetable = [];
-    const famUser = [];
-    for (let i = 0; i < icons.length; i++) {
-        if (icons[i].family === "animal") {
-            famAnimal.push(icons[i]);
-        } else if (icons[i].family === "vegetable") {
-            famVegetable.push(icons[i]);
-        } else if (icons[i].family === "user") {
-            famUser.push(icons[i]);
-        }
-    }
-    for (let i = 0; i < famAnimal.length; i++) {
-        famAnimal[i].classList.add("blue")
-    }
-
-    for (let i = 0; i < famVegetable.length; i++) {
-        famVegetable[i].classList.add("orange")
-    }
-
-    for (let i = 0; i < famUser.length; i++) {
-        famUser[i].classList.add("purple")
-    }
-}
-
-identifyFam();
