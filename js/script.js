@@ -177,3 +177,5 @@ function createCards(icons) {
 
 }
 
+const createdIcons = createCards(icons).join(" ");
+cardsContainer.innerHTML = createdIcons;
